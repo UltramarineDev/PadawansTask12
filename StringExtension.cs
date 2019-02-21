@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PadawansTask12
 {
@@ -6,7 +7,30 @@ namespace PadawansTask12
     {
         public static bool AllCharactersAreUnique(string source)
         {
-            throw new NotImplementedException();
+            if (source == null)
+            {
+                throw new ArgumentNullException();
+            }
+            var dictionary = new Dictionary<char, int>();
+
+            foreach (var a in source)
+            {
+                if (!dictionary.ContainsKey(a))
+                {
+                    dictionary[a] = 0;
+                }
+                dictionary[a]++;
+            }
+
+            foreach (var a in dictionary)
+            {
+                if (a.Value != 1)
+                { 
+                    return false;
+                }
+            }
+            return true;
         }
+        
     }
 }
