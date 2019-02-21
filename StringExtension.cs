@@ -11,6 +11,11 @@ namespace PadawansTask12
             {
                 throw new ArgumentNullException();
             }
+
+            if(source.Length == 0)
+            {
+                throw new ArgumentException();
+            }
             var dictionary = new Dictionary<char, int>();
 
             foreach (var a in source)
